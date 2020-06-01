@@ -1,5 +1,5 @@
 {
-  "name": "jrest",
+  "name": "@knomedia/jrest",
   "version": "0.0.1",
   "description": "simple rest client helper",
   "main": "index.js",
