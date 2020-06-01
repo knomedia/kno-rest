@@ -10,7 +10,7 @@ function memberRoute(ep, id) {
   return `${ep}/${id}`
 }
 
-class JRest {
+class QuickRest {
   constructor(endpoint, xhr) {
     this.endpoint = endpoint
     this.xhr = xhr || axios
@@ -93,4 +93,4 @@ class JRest {
   }
 }
 
-export default JRest
+export default QuickRest

@@ -1,4 +1,4 @@
-# JRest
+# KnoRest
 
 > an opinionated client for interacting with JSON rest endpoints
 
@@ -27,7 +27,7 @@ Create a new instance and call a crud endpoint:
 ```js
 cont ENDPOINT = "/api/v1/messages"
 async function getMessages() {
-  let messageService = new JRest(ENDPOINT)
+  let messageService = new KRest(ENDPOINT)
   let messages = await messagesService.index() // makes a GET call to endpoint
   return messages
 }
@@ -41,7 +41,7 @@ async function getMessages() {
 Run a GET call against endpoint:
 
 ```sh
-jRest.index()
+kRest.index()
 ```
 
 
@@ -50,7 +50,7 @@ jRest.index()
 Run a POST call against endpoint:
 
 ```sh
-jRest.create({message: {title: "hi", user_id: 3}})
+kRest.create({message: {title: "hi", user_id: 3}})
 ```
 
 
@@ -59,7 +59,7 @@ jRest.create({message: {title: "hi", user_id: 3}})
 Run a GET call against member route of endpoint with an id
 
 ```sh
-jRest.show(45)
+kRest.show(45)
 ```
 
 
@@ -69,7 +69,7 @@ Run a PUT call against member route of endpoint with an id
 
 ```sh
 let message = {id: 45, title:"hello", user_id: 3}
-jRest.update(message, 'message')
+kRest.update(message, 'message')
 ```
 
 
@@ -78,7 +78,7 @@ jRest.update(message, 'message')
 Run a DELETE call against member route of endpoint with an id
 
 ```sh
-jRest.destroy(45)
+kRest.destroy(45)
 ```
 
 returns `true` if call was successful, `false` if not

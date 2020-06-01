@@ -1,5 +1,5 @@
 {
-  "name": "@knomedia/jrest",
+  "name": "kno-rest",
   "version": "0.0.1",
   "description": "simple rest client helper",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/knomedia/jrest.git"
+    "url": "git+https://github.com/knomedia/kno-rest.git"
   },
   "keywords": [
     "ajax",
@@ -18,9 +18,9 @@
   "author": "jsk",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/knomedia/jrest/issues"
+    "url": "https://github.com/knomedia/kno-rest/issues"
   },
-  "homepage": "https://github.com/knomedia/jrest#readme",
+  "homepage": "https://github.com/knomedia/kno-rest#readme",
   "peerDependencies": {
     "axios": "^0.19.0"
   }
