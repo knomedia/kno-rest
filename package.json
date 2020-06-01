@@ -1,0 +1,27 @@
+{
+  "name": "jrest",
+  "version": "0.0.1",
+  "description": "simple rest client helper",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/knomedia/jrest.git"
+  },
+  "keywords": [
+    "ajax",
+    "rest",
+    "rails"
+  ],
+  "author": "jsk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/knomedia/jrest/issues"
+  },
+  "homepage": "https://github.com/knomedia/jrest#readme",
+  "peerDependencies": {
+    "axios": "^0.19.0"
+  }
+}
