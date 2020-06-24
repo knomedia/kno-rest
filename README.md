@@ -5,7 +5,7 @@
 ## Installation
 
 ```sh
-npm i --save-dev jrest
+npm i --save-dev kno-rest
 ```
 
 ## Notes
