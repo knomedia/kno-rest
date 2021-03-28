@@ -1,96 +1,54 @@
-import getHeaders from './default_headers'
-import axios from 'axios'
+import Routes from './routes'
+import Ajax from './ajax'
 
 const GET = 'GET'
 const POST = 'POST'
 const DELETE = 'DELETE'
 const PUT = 'PUT'
 
-function memberRoute(ep, id) {
-  return `${ep}/${id}`
-}
-
-class QuickRest {
+class KnoRest {
   constructor(endpoint, xhr) {
-    this.endpoint = endpoint
-    this.xhr = xhr || axios
+    this.routes = new Routes(endpoint)
+    this.ajax = new Ajax(xhr)
+  }
+
+  onError(err) {
+    console.log(err)
+    console.log('error loading from', url)
+  }
+  onSuccess(res) {
+    return res.data
+  }
+
+  collection(method, data, action) {
+    let url = this.routes.collection(action)
+    return this.ajax.exec(url, method, data)
+  }
+
+  member(method, id, data, action) {
+    let url = this.routes.member(id, action)
+    return this.ajax.exec(url, method, data)
   }
 
   index() {
-    let url = this.endpoint
-    let method = GET
-    return this.xhr({
-      url: url,
-      method: method,
-      headers: getHeaders(),
-    }).then((res) => {
-      return res.data
-    }).catch((err) => {
-      console.log('error loading from', url)
-    })
+    return this.collection(GET)
   }
 
-  create(params) {
-    let url = this.endpoint
-    let method = POST
-    return this.xhr({
-      url: url,
-      method: method,
-      headers: getHeaders(),
-      data: params,
-    }).then((res) => {
-      return res.data
-    }).catch((err) => {
-      console.log('error creating from', url)
-    })
+  create(payload) {
+    return this.collection(POST, payload)
   }
 
   show(id) {
-    let url = memberRoute(this.endpoint, id)
-    let method = GET
-    return this.xhr({
-      url: url,
-      method: method,
-      headers: getHeaders(),
-    }).then((res) => {
-      return res.data
-    }).catch((err) => {
-      console.log(err)
-      console.log('error loading from', url)
-    })
+    return this.member(GET, id)
   }
 
-  update(item, name) {
-    let data = {}
-    data[name] = Object.assign({}, item)
-    let url = memberRoute(this.endpoint, item.id)
-    let method = PUT
-    return this.xhr({
-      url: url,
-      method: method,
-      headers: getHeaders(),
-      data: data,
-    }).then((res) => {
-      return res.data
-    }).catch((err) => {
-      console.log('error updating', url, data)
-    })
+  update(id, payload) {
+    return this.member(PUT, id, payload)
   }
 
   destroy(id) {
-    let url = memberRoute(this.endpoint, id)
-    let method = DELETE
-    return this.xhr({
-      url: url,
-      method: method,
-      headers: getHeaders(),
-    }).then((res) => {
-      return true
-    }).catch((err) => {
-      console.log('error destroying', url)
-      return false
-    })
+    return this.member(DELETE, id)
   }
 }
 
-export default QuickRest
+export default KnoRest

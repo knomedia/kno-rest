@@ -1,8 +1,9 @@
 import getToken from './get_token'
 
-export default function defaultHeaders() {
+export default function defaultHeaders(token) {
+  token = token || getToken
   return {
-    'X-CSRF-Token': getToken(),
+    'X-CSRF-Token': token(),
     'Accept': 'application/json'
   }
 }
