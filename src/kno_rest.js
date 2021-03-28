@@ -12,14 +12,6 @@ class KnoRest {
     this.ajax = new Ajax(xhr)
   }
 
-  onError(err) {
-    console.log(err)
-    console.log('error loading from', url)
-  }
-  onSuccess(res) {
-    return res.data
-  }
-
   collection(method, data, action) {
     let url = this.routes.collection(action)
     return this.ajax.exec(url, method, data)
