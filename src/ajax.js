@@ -6,6 +6,14 @@ class Ajax {
     this.xhr = xhr || axios
     this.headers = headers || getHeaders
   }
+  onError(err) {
+    console.log(err)
+    console.log('error loading url')
+  }
+  onSuccess(res) {
+    return res.data
+  }
+
   exec(url, method, data) {
     let config = {
       url: url,
