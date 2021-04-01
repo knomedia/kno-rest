@@ -39,6 +39,11 @@ describe('ajax', function() {
       a.exec('/test', 'POST', {test: {id: 4}})
       expect(c.data.test.id).to.eq(4)
     });
+    it('sets data key for GET requests', function() {
+      let a = new Ajax(xhr, headers)
+      a.exec('/test', 'GET', {from: '4w'})
+      expect(c.data.from).to.eq('4w')
+    });
   });
 });
 

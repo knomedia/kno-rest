@@ -1,5 +1,6 @@
 import Routes from './routes'
 import Ajax from './ajax'
+import query from './query'
 
 const GET = 'GET'
 const POST = 'POST'
@@ -14,11 +15,13 @@ class KnoRest {
 
   collection(method, data, action) {
     let url = this.routes.collection(action)
+    url = query(url, data, method)
     return this.ajax.exec(url, method, data)
   }
 
   member(method, id, data, action) {
     let url = this.routes.member(id, action)
+    url = query(url, data, method)
     return this.ajax.exec(url, method, data)
   }
 
